@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: composer, PHPStan, ECS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+          tools: composer:v2
+          extensions: bcmath, curl, dom, intl, mbstring, zip
+
+      - name: Validate composer.json
+        run: composer --no-plugins validate --strict --no-check-publish
+
+      - name: Install dependencies
+        run: composer update --no-interaction --prefer-dist --no-progress
+
+      - name: PHPStan
+        run: composer phpstan
+
+      - name: ECS
+        run: composer check-cs
+
+      - name: Parser checks
+        run: composer parser-check

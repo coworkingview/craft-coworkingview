@@ -1,0 +1,11 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    label: "City"|t("coworkingview"),
+    instructions: "City slug, for example berlin, madrid or abu-dhabi."|t("coworkingview"),
+    id: "city",
+    name: "city",
+    value: widget.city,
+    required: true,
+    errors: widget.getErrors("city"),
+}) }}

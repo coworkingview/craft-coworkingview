@@ -1,0 +1,35 @@
+{% if rows is empty %}
+    <p>{{ error ?? "No prices to show."|t("coworkingview") }}</p>
+{% else %}
+    <table class="data fullwidth">
+        <thead>
+            <tr>
+                <th>{{ "Product"|t("coworkingview") }}</th>
+                <th>{{ "Median"|t("coworkingview") }}</th>
+                <th>{{ "P25 – P75"|t("coworkingview") }}</th>
+                <th>{{ "Sample"|t("coworkingview") }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row.label }}{% if row.lowConfidence %} *{% endif %}</td>
+                    <td>{{ row.median }}</td>
+                    <td>{{ row.spread }}</td>
+                    <td>{{ row.sample }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="light">* {{ "Fewer than 10 prices. Treat the figure as indicative."|t("coworkingview") }}</p>
+    {% if rate and rate.attribution %}
+        <p class="light">{{ rate.attribution }}</p>
+    {% endif %}
+    {% if rate %}
+        <p>
+            <a href="https://coworkingview.com/{{ locale }}/coworking/{{ rate.citySlug }}" target="_blank" rel="noopener">
+                {{ "Browse {city} on CoworkingView"|t("coworkingview", {city: rate.cityName}) }}
+            </a>
+        </p>
+    {% endif %}
+{% endif %}

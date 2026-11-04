@@ -1,0 +1,26 @@
+{% import "_includes/forms" as forms %}
+
+<form method="get" action="{{ cpUrl('utilities/coworkingview-prices') }}">
+    <div class="flex">
+        {{ forms.textField({
+            label: "City"|t("coworkingview"),
+            instructions: "City slug, for example berlin, madrid or abu-dhabi."|t("coworkingview"),
+            id: "coworkingview-city",
+            name: "city",
+            value: city,
+        }) }}
+    </div>
+    <button type="submit" class="btn submit">{{ "Look up"|t("coworkingview") }}</button>
+</form>
+
+<div class="readable" style="margin-top: 24px;">
+    {% if rate %}
+        <h2>{{ rate.cityName }} <span class="light">({{ rate.currency }})</span></h2>
+    {% endif %}
+    {% include "coworkingview/_rates" with {
+        rows: rows,
+        rate: rate,
+        error: error,
+        locale: locale,
+    } only %}
+</div>

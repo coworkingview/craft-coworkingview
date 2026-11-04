@@ -1,0 +1,68 @@
+{
+  "name": "coworkingview/craft-coworkingview",
+  "description": "Flexible office and coworking prices by city from the CoworkingView Price Index.",
+  "type": "craft-plugin",
+  "keywords": [
+    "craft",
+    "craftcms",
+    "coworking",
+    "flex-office",
+    "prices",
+    "coworkingview"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "CoworkingView",
+      "homepage": "https://coworkingview.com"
+    }
+  ],
+  "homepage": "https://coworkingview.com",
+  "support": {
+    "email": "info@coworkingview.com",
+    "issues": "https://github.com/coworkingview/craft-coworkingview/issues?state=open",
+    "source": "https://github.com/coworkingview/craft-coworkingview",
+    "docs": "https://github.com/coworkingview/craft-coworkingview/blob/main/README.md"
+  },
+  "require": {
+    "php": ">=8.0.2",
+    "craftcms/cms": "^4.5.0 || ^5.0.0",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "craftcms/ecs": "dev-main",
+    "craftcms/phpstan": "dev-main",
+    "phpstan/phpstan": "^1.12 || ^2.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "coworkingview\\coworkingview\\": "src/"
+    }
+  },
+  "scripts": {
+    "check-cs": "ecs check --ansi",
+    "fix-cs": "ecs check --ansi --fix",
+    "phpstan": "phpstan --memory-limit=1G --ansi",
+    "parser-check": "php tests/parser-check.php"
+  },
+  "extra": {
+    "name": "CoworkingView",
+    "handle": "coworkingview",
+    "class": "coworkingview\\coworkingview\\Plugin",
+    "developer": "CoworkingView",
+    "developerUrl": "https://coworkingview.com",
+    "developerEmail": "info@coworkingview.com",
+    "documentationUrl": "https://github.com/coworkingview/craft-coworkingview/blob/main/README.md",
+    "changelogUrl": "https://raw.githubusercontent.com/coworkingview/craft-coworkingview/main/CHANGELOG.md",
+    "description": "Flexible office and coworking prices by city from the CoworkingView Price Index."
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "craftcms/plugin-installer": true,
+      "yiisoft/yii2-composer": true
+    }
+  }
+}

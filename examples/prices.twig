@@ -1,0 +1,34 @@
+{# Front-end example. Copy into a Craft template.
+   Prices are medians from the CoworkingView Price Index (CC BY 4.0).
+   Print `attribution` next to any figure you publish. #}
+
+{% set berlin = craft.coworkingview.rate('berlin') %}
+
+{% if berlin %}
+    <h2>{{ berlin.cityName }}</h2>
+    <ul>
+        {% for row in berlin.rows %}
+            <li>
+                {{ row.product }}:
+                {{ craft.coworkingview.format(row.median, berlin.currency) }}
+                per {{ row.unit }}
+                (n={{ row.sample_size }}{% if row.low_confidence %}, low confidence{% endif %})
+            </li>
+        {% endfor %}
+    </ul>
+    <p>{{ berlin.attribution }}</p>
+    <p><a href="https://coworkingview.com/en/coworking/{{ berlin.citySlug }}">Offices in {{ berlin.cityName }}</a></p>
+{% endif %}
+
+{% set cities = craft.coworkingview.cities() %}
+<ul>
+    {% for city in cities %}
+        {% if city.published %}
+            <li>
+                {{ city.city_name }} —
+                from {{ craft.coworkingview.format(city.entry_median, city.currency) }}
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+<p>{{ cities.attribution }}</p>
