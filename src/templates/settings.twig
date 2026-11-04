@@ -1,0 +1,37 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    label: "Cache duration"|t("coworkingview"),
+    instructions: "How long Craft keeps a CoworkingView response, in seconds. Use 0 to skip the cache. The public API asks callers to cache for at least a few minutes."|t("coworkingview"),
+    id: "cacheDuration",
+    name: "cacheDuration",
+    value: settings.cacheDuration,
+    type: "number",
+    min: 0,
+    max: 604800,
+    size: 8,
+    errors: settings.getErrors("cacheDuration"),
+}) }}
+
+{{ forms.selectField({
+    label: "Currency display"|t("coworkingview"),
+    instructions: "Convert prices into this currency. Local keeps each city’s own currency (euro in Berlin, pound in London)."|t("coworkingview"),
+    id: "currency",
+    name: "currency",
+    value: settings.currency,
+    options: [
+        {label: "Local currency"|t("coworkingview"), value: ""},
+        {label: "EUR (€)", value: "EUR"},
+        {label: "GBP (£)", value: "GBP"},
+        {label: "USD ($)", value: "USD"},
+        {label: "CHF", value: "CHF"},
+        {label: "AED", value: "AED"},
+    ],
+    errors: settings.getErrors("currency"),
+}) }}
+
+<p class="light">
+    {{ "Figures are medians from the {index}. They are not a booking price. Keep the attribution line when you publish a figure."|t("coworkingview", {
+        index: '<a href="https://coworkingview.com/en/tools/price-index" target="_blank" rel="noopener">CoworkingView Price Index</a>',
+    })|raw }}
+</p>

@@ -1,0 +1,108 @@
+{
+  "data": {
+    "cities": [
+      {
+        "city": {"slug": "berlin", "name": "Berlin"},
+        "countryCode": "DE",
+        "currency": "EUR",
+        "figures": [
+          {
+            "optionType": "private_office",
+            "median": {"amount": 480, "currency": "EUR"},
+            "p25": {"amount": 399, "currency": "EUR"},
+            "p75": {"amount": 550, "currency": "EUR"},
+            "sampleSize": 59,
+            "propertyCount": 38,
+            "operatorCount": 20
+          },
+          {
+            "optionType": "flex_desk",
+            "median": {"amount": 209, "currency": "EUR"},
+            "p25": {"amount": 199, "currency": "EUR"},
+            "p75": {"amount": 290, "currency": "EUR"},
+            "sampleSize": 73,
+            "propertyCount": 67,
+            "operatorCount": 38
+          },
+          {
+            "optionType": "fix_desk",
+            "median": {"amount": 310, "currency": "EUR"},
+            "p25": {"amount": 290, "currency": "EUR"},
+            "p75": {"amount": 421, "currency": "EUR"},
+            "sampleSize": 60,
+            "propertyCount": 56,
+            "operatorCount": 37
+          }
+        ],
+        "byType": [
+          {
+            "optionType": "flex_desk",
+            "median": {"amount": 1, "currency": "EUR"},
+            "sampleSize": 1
+          }
+        ],
+        "dayPass": {
+          "median": {"amount": 35, "currency": "EUR"},
+          "sampleSize": 59,
+          "propertyCount": 55,
+          "operatorCount": 27
+        },
+        "meetingRoom": {
+          "median": {"amount": 32.5, "currency": "EUR"},
+          "sampleSize": 4,
+          "propertyCount": 4,
+          "operatorCount": 3
+        },
+        "eventSpace": {
+          "median": {"amount": 120, "currency": "EUR"},
+          "p25": {"amount": 90, "currency": "EUR"},
+          "p75": {"amount": 180, "currency": "EUR"},
+          "sampleSize": 12
+        },
+        "virtualOffice": {
+          "median": {"amount": 40, "currency": "EUR"},
+          "sampleSize": 11
+        },
+        "propertyCount": 86,
+        "operatorCount": 48,
+        "sampleSize": 86,
+        "p25": {"amount": 219, "currency": "EUR"},
+        "p75": {"amount": 450, "currency": "EUR"},
+        "entryMedian": {"amount": 259, "currency": "EUR"},
+        "entryMin": {"amount": 80, "currency": "EUR"},
+        "entryMax": {"amount": 2100, "currency": "EUR"}
+      },
+      {
+        "city": {"slug": "aarhus", "name": "Aarhus"},
+        "countryCode": "DK",
+        "currency": "EUR",
+        "byType": [
+          {
+            "optionType": "flex_desk",
+            "median": {"amount": 150, "currency": "EUR"},
+            "min": {"amount": 100, "currency": "EUR"},
+            "max": {"amount": 200, "currency": "EUR"},
+            "sampleSize": 8
+          }
+        ],
+        "propertyCount": 6,
+        "operatorCount": 4,
+        "sampleSize": 8,
+        "entryMedian": {"amount": 140, "currency": "EUR"}
+      }
+    ],
+    "unpublished": [
+      {
+        "city": {"slug": "tiny-town", "name": "Tiny Town"},
+        "countryCode": "DE",
+        "currency": "EUR",
+        "propertyCount": 2,
+        "operatorCount": 1,
+        "sampleSize": 2
+      }
+    ],
+    "asOf": "2026-11-04T10:16:56.538Z",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Source: CoworkingView Price Index"
+  }
+}
